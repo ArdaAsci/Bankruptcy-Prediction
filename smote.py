@@ -34,13 +34,6 @@ class Smote(object):
                newindex += 1
                N -= 1
         return synthetic
-        #for m in range(len(indices)):
-        #    t=self.samples[indices[m]]
-        #    newt=pd.DataFrame(t)
-        #    matrix.append([])
-        #    for j in range(len(newt.columns)):
-        #        matrix[m].append(random.choice(newt[j]))
-        return matrix
 
 def k_NN(X: np.ndarray, k: int = 5):
     indices_matrix = np.zeros((X.shape[0], k))

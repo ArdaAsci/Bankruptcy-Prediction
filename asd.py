@@ -106,6 +106,8 @@ class GradientBoostingClassifier(GradientBoosting):
         y = to_categorical(y)
         super(GradientBoostingClassifier, self).fit(X, y)
 
+########################################################################################
+
 from __future__ import division, print_function
 import numpy as np
 

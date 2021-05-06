@@ -1,4 +1,4 @@
 # EEE485_Project
 ## Authors
-Abdullah Arda Aşcı
+Abdullah Arda Aşcı\\
 Arda Türkyaşar

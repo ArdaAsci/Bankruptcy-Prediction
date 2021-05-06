@@ -16,7 +16,6 @@ import fcn
 raw_data = pd.read_csv("data.csv")
 bankrupt_pd = raw_data["Bankrupt?"]
 features_pd = raw_data.drop(["Bankrupt?"], axis=1)
-raw_data
 
 # ### Check for NAN and Duplicate Values
 print("NAN values:", [col for col in features_pd if features_pd[col].isna().sum() > 0])
@@ -33,7 +32,7 @@ print("Unstable to Stable Ratio: ", unstable_initial/stable_initial)
 
  ### PLOTS
 raw_data.hist(figsize = (50,40), bins = 50)
-plt.show()
+#plt.show()
 f, axes = plt.subplots(ncols=4, figsize = (24,6) )
 sns.boxplot(x="Bankrupt?", y=" Cash/Total Assets", data=raw_data, ax = axes[0] )
 axes[0].set_title("Bankrupt vs Cash/Total Assets")
@@ -43,7 +42,7 @@ sns.boxplot(x="Bankrupt?", y=" Net worth/Assets", data=raw_data, ax = axes[2] )
 axes[2].set_title("Bankrupt vs Net worth/Assets")
 sns.boxplot(x="Bankrupt?", y=" Cash/Current Liability", data=raw_data, ax = axes[3] )
 axes[3].set_title("Bankrupt vs Cash/Current Liability")
-plt.show()
+#plt.show()
 
 # ### Outlier Removal Using IQR
 clean_data = raw_data.copy(deep=True)
@@ -54,7 +53,7 @@ clean_data = clean_data.reset_index(drop=True)
 
  ### Plots with Outliers Removed
 clean_data.hist(figsize = (50,40), bins = 50)
-plt.show()
+#plt.show()
 f, axes = plt.subplots(ncols=4, figsize = (24,6) )
 sns.boxplot(x="Bankrupt?", y=" Cash/Total Assets", data=clean_data, ax = axes[0] )
 axes[0].set_title("Bankrupt vs Cash/Total Assets")
@@ -64,7 +63,7 @@ sns.boxplot(x="Bankrupt?", y=" Net worth/Assets", data=clean_data, ax = axes[2] 
 axes[2].set_title("Bankrupt vs Net worth/Assets")
 sns.boxplot(x="Bankrupt?", y=" Cash/Current Liability", data=clean_data, ax = axes[3] )
 axes[3].set_title("Bankrupt vs Cash/Current Liability")
-plt.show()
+#plt.show()
 
 # ### SMOTE
 print("SMOTE")
@@ -86,7 +85,7 @@ print("Unstable to Stable Ratio: ", unstable_smote/stable_smote, sep="")
 
 
 smote_data["Bankrupt?"].hist()
-plt.show()
+#plt.show()
 f, axes = plt.subplots(ncols=4, figsize = (24,6) )
 sns.boxplot(x="Bankrupt?", y=" Cash/Total Assets", data=smote_data, ax = axes[0] )
 axes[0].set_title("Bankrupt vs Cash/Total Assets")
@@ -96,7 +95,7 @@ sns.boxplot(x="Bankrupt?", y=" Net worth/Assets", data=smote_data, ax = axes[2] 
 axes[2].set_title("Bankrupt vs Net worth/Assets")
 sns.boxplot(x="Bankrupt?", y=" Cash/Current Liability", data=smote_data, ax = axes[3] )
 axes[3].set_title("Bankrupt vs Cash/Current Liability")
-plt.show()
+#plt.show()
 
 # ### Test Train Split
 test_ratio = 0.1

@@ -1,5 +1,5 @@
 # EEE 485 Statistical Learning and Data Analytics Term Project
-Company bankruptcy Prediction with ML
+Company Bankruptcy Prediction with ML
 
 ## Authors
 Abdullah Arda Aşcı </br>

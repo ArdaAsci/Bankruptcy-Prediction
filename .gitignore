@@ -1,2 +1,7 @@
-__pycache__/
-.vscode/
+*.pyc
+__pycache__/fcn.cpython-37.pyc
+__pycache__/fcn.cpython-38.pyc
+__pycache__/kNN.cpython-37.pyc
+__pycache__/kNN.cpython-38.pyc
+__pycache__/smote.cpython-37.pyc
+__pycache__/smote.cpython-38.pyc

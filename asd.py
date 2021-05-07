@@ -18,45 +18,6 @@ class Smote(object):
         numsamples, numattrs = self.samples.shape
         synthetic = np.zeros( (N*numsamples, numattrs))
         
-<<<<<<< HEAD
-        matrix=[]
-        indices = k_NN(self.samples)
-        newindex = 0
-        for i in range(numsamples):
-            while N > 0:
-                nn = random.randint(0, k)
-                for attr in range(numattrs):
-                    dif = self.samples[indices[i, nn], attr] -self.samples[i, attr]
-                    gap = random.uniform(0,1)
-                    synthetic[newindex,attr] = self.samples[i, attr] + gap*dif
-                newindex += 1
-                N -= 1
-        return synthetic
-        #for m in range(len(indices)):
-        #    t=self.samples[indices[m]]
-        #    newt=pd.DataFrame(t)
-        #    matrix.append([])
-        #    for j in range(len(newt.columns)):
-        #        matrix[m].append(random.choice(newt[j]))
-        return matrix
-
-def k_NN(X: np.ndarray, k: int = 5):
-    indices_matrix = np.zeros((X.shape[0], k))
-    for idx, row in enumerate(X):
-        dist = LA.norm(X-row, axis=1)
-        indices = np.argsort(dist)[:k]
-        indices_matrix[idx,:] = indices 
-    return indices_matrix.astype(int)  
-
-raw_data = pd.read_csv("data.csv")
-bankrupt_pd = raw_data["Bankrupt?"]
-features_pd = raw_data.drop(["Bankrupt?"], axis=1)
-bankrupt = bankrupt_pd.to_numpy()
-
-minority = features_pd[bankrupt_pd == 1]
-smote = Smote(minority.to_numpy())
-smote.oversample()
-=======
         # Square loss for regression
         # Log loss for classification
         self.loss = SquareLoss()
@@ -406,4 +367,3 @@ class ClassificationTree(DecisionTree):
         self._impurity_calculation = self._calculate_information_gain
         self._leaf_value_calculation = self._majority_vote
         super(ClassificationTree, self).fit(X, y)
->>>>>>> 431f313afe7d8d5e6e5bab45801bfceffff4ae66

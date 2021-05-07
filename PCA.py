@@ -8,21 +8,23 @@ class PCAnalyser():
             self.X = X
         else:
             self.X = X - np.mean(X, axis=0)
-        print(self.X.T.shape)
-        #self.Sigma = self.X.T @ self.X
+        self.Sigma = self.X.T @ self.X
+        self.eigs = np.array([])
         return
 
-    def analyse(self, k=20):
-        eig_vals, eig_vecs = LA.eigh(self.Sigma)
+    def analyse(self, k = 10):
+        if k > self.Sigma.shape[0]: return
 
+        eig_vals, eig_vecs = LA.eigh(self.Sigma)
         idx = np.argsort(eig_vals)[::-1]
-        eig_vals = eig_vals[idx]
+        self.eigs = eig_vals[idx]
         eig_vecs = eig_vecs[:,idx]
         PCs = eig_vecs[:,0:k]
-        return PCs
 
-    def calc_PVE(eigs, m, individual=False):
-        m = np.clip(m, 0, len(eigs))
+        return self.eigs, PCs
+
+    def calc_PVE(self, m=10, individual=False):
+        m = np.clip(m, 0, len(self.eigs))
         if individual:
-            return eigs[m] / sum(eigs) # PVE(m)
-        return sum(eigs[:m+1]) / sum(eigs) # PVE(first m)
+            return self.eigs[m] / sum(self.eigs) # PVE(m)
+        return sum(self.eigs[:m+1]) / sum(self.eigs) # PVE(first m)

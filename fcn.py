@@ -28,19 +28,11 @@ def confusion_matrix(real, pred, show = True, ret = True):
     TN = np.sum(np.logical_and(real == 0, pred == 0))
     FN = np.sum(np.logical_and(real == 1, pred == 0))
     FP = np.sum(np.logical_and(real == 0, pred == 1))
-    matrix = np.array([[TP, FN], [FP, TN]])
+    matrix = np.array([[TP, FP], [FN, TN]])
     if show:
-        print(" \t1\t0 (prediction)")
+        print(" 1\t0 (actual)")
         print("1\t", matrix[0, 0], "\t", matrix[0, 1], sep="")
         print("0\t", matrix[1, 0], "\t", matrix[1, 1], sep="")
     if ret:
         return matrix
     return
-
-    def to_categorical(x, n_col=None):
-        """ One-hot encoding of nominal values """
-        if not n_col:
-            n_col = np.amax(x) + 1
-        one_hot = np.zeros((x.shape[0], n_col))
-        one_hot[np.arange(x.shape[0]), x] = 1
-        return one_hot

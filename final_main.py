@@ -56,8 +56,8 @@ print("Unstable to Stable Ratio: ", unstable_initial/stable_initial)
 # ### PLOTS
 
 # %%
-raw_data.hist(figsize = (50,40), bins = 50)
-plt.show()
+#raw_data.hist(figsize = (50,40), bins = 50)
+#plt.show()
 
 
 # %%

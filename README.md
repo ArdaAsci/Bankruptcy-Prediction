@@ -3,4 +3,4 @@ Company Bankruptcy Prediction with ML
 
 ## Authors
 Abdullah Arda Aşcı </br>
-Arda Türkyaşar
+[Arda Türkyaşar](https://github.com/klatyma)
